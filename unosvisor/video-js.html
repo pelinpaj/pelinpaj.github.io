@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta name="keywords" content="unos visor, Elin, Johansson, Ninja, Agborn, barnvisor, svenska" />
+  <meta name="description" content="Näsvisor - unika, vackra och viktiga barnlåtar med skoj och allvar. Finurligt illustrerade av konstnären Ninja Agborn." />
+  <title>Unos visor</title>
+  <script type="text/javascript" src="cordova.js"></script>
+
+  <!-- Load the source files -->
+  <link href="videojs/video-js.css" rel="stylesheet" type="text/css">
+  <script src="videojs/video.js"></script>
+
+  <style>
+    
+    html {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+    }
+    
+    body {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+    }
+    
+    .videoContainer
+    {
+    position:absolute;
+    height:100%;
+    width:100%;
+    max-width: 100%;
+    min-height: 100%;
+    margin 0px auto;
+    border: 0px solid blue;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    visibility: hidden;
+    }
+    
+    .videoContainer video
+    {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    text-align: center;
+    margin 0 auto;
+    border: 0px solid blue;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    }
+    
+    .vjs-default-skin .vjs-volume-control { display: none; }
+    
+    .vjs-default-skin .vjs-fullscreen-control:before {
+    /*content: 'back'; */
+    content: url(back.svg);
+    }
+    
+    .vjs-loading-spinner {
+    display: none !important;
+    }
+    
+    .vjs-waiting {
+    visibility: hidden;
+    background: transparent;
+    }
+    
+    .vjs-control-bar { display:none!important; }
+    
+  </style>
+</head>
+<body>
+
+  <div class="videoContainer" id="mycontainer">
+    <video autoplay id="myvideo" class="video-js vjs-default-skin" controls preload="auto"
+	   data-setup='{}'>
+    <source src="" type="video/mp4" id="mp4source">
+  </video>
+  </div>
+
+    <script>
+    moviesel = window.location.hash
+    moviesel = moviesel.split('#')[1]
+
+    var mp4player = videojs("myvideo");
+    var sources = [{"type": "video/mp4", "src": moviesel}];
+    mp4player.src(sources);
+
+    setTimeout(function()
+    {
+    document.getElementById("mycontainer").style.visibility='visible';
+    var videoid =document.getElementsByClassName("vjs-control-bar");
+    videoid[0].style.setProperty("display", "flex", "important");
+    },500
+    );
+    
+    setInterval(function()
+    {
+	var mp4player = videojs("myvideo");
+	if (mp4player.currentTime() > (mp4player.duration() - 0.1))
+	{
+	    window.location.href = "menu.html";
+	};
+    },1000);
+
+/*
+    document.getElementById("myvideo").addEventListener("beforeunload", beforeUnload, false);
+
+    function beforeUnload(e) {
+    var mp4player = document.getElementById("myvideo");
+    mp4player.hide();
+    }
+*/
+  </script>
+</body>
+</html>

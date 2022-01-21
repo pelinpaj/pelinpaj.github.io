@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta name="keywords" content="unos visor, Elin, Johansson, Ninja, Agborn, barnvisor, svenska" />
+	<meta name="description" content="Näsvisor - unika, vackra och viktiga barnlåtar med skoj och allvar. Finurligt illustrerade av konstnären Ninja Agborn." />
+        <title>Unos visor</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="theme.css" /> -->
+        <title>Hello World</title>
+    </head>
+    <style>
+
+      html {
+      height: 100vh;
+      width: 100vw;
+      background: url(blue.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+      overflow-y: scroll; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+      }
+
+      body {
+      height: 100vh;
+      width: 100vw;
+      background: url(blue.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+      overflow-y: scroll; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+      }
+
+      .videoContainer
+      {
+      position:absolute;
+      height:100%;
+      width:100%;
+      max-width: 100%;
+      min-height: 100%;
+      margin 0px auto;
+      border: 0px solid blue;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      }
+
+      .videoContainer video
+      {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      text-align: center;
+      margin 0 auto;
+      border: 0px solid blue;
+      padding: 0;
+      overflow: hidden;
+      }
+
+    </style>
+    <body>
+<!--            <h1>Elins app</h1> -->
+
+      <div class="videoContainer">
+        <video autoplay poster="unosgodnattsangAtext.jpg" style="visibility:hidden;" onplay="var s=this;setTimeout(function(){s.style.visibility='visible';},60);">
+	  <source src="minmagearsomentrummatext2b.mp4" type="video/mp4">
+        </video>
+      </div>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+    </body>
+
+</html>

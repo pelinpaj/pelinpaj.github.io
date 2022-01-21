@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta name="keywords" content="unos visor, Elin, Johansson, Ninja, Agborn, barnvisor, svenska" />
+	<meta name="description" content="Näsvisor - unika, vackra och viktiga barnlåtar med skoj och allvar. Finurligt illustrerade av konstnären Ninja Agborn." />
+        <title>Unos visor</title>
+        <script type="text/javascript" src="cordova.js"></script>
+    <style>
+
+      html {
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+      overflow-y: scroll; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+      }
+
+      body {
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+      overflow-y: scroll; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+      }
+
+      .videoContainer
+      {
+      position:absolute;
+      height:100%;
+      width:100%;
+      max-width: 100%;
+      min-height: 100%;
+      margin 0px auto;
+      border: 0px solid blue;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      }
+
+      .videoContainer video
+      {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      text-align: center;
+      margin 0 auto;
+      border: 0px solid blue;
+      padding: 0;
+      overflow: hidden;
+      }
+
+      }
+      
+    </style>
+    <link rel="stylesheet" href="video-new.css">
+    </head>
+    <body>
+      <div id="video-container">
+	<video autoplay poster="blue.jpg" style="visibility:hidden;" onplay="var s=this;setTimeout(function(){s.style.visibility='visible';},60);" id="video">
+        <!-- <video autoplay controls poster="blue.jpg" id="video"> -->
+	  <source src="" type="video/mp4" id="mp4source">
+
+        </video>
+	  <!-- Video Controls -->
+	  <div id="video-controls">
+	    <button type="button" id="play-pause" class="play">Pause</button>
+	    <input type="range" id="seek-bar" value="0">
+	    <button type="button" id="back">Back</button>
+	  </div>
+      </div>
+      </div>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript">
+	moviesel = window.location.hash
+	moviesel = moviesel.split('#')[1]
+	var mp4vid = document.getElementById("mp4source");
+	var mp4player = document.getElementById("video");
+	
+      	mp4player.src = moviesel;
+
+	var video = document.getElementById("video");
+	function playPause() {
+	if (video.paused)
+	  video.play();
+	else
+	  video.pause();
+	}
+
+	function goBack() {
+	  window.history.back();
+	}
+	
+	document.getElementById("video").addEventListener("ended", myHandler, false);
+
+	function myHandler(e) {
+	var mp4player = document.getElementById("video");
+	if (mp4player.hasAttribute("controls")) {
+	  mp4player.removeAttribute("controls")
+    	}
+	  window.location.href = "menu.html";
+	}
+      </script>
+      <script src="video-new.js"></script>
+    </body>
+
+</html>
